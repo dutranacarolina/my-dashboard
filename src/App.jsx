@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Menu from "./components/Menu";
 import SummaryCard from "./components/SummaryCard";
 import Panel from "./components/Panel";
+import InfoRow from "./components/InfoRow";
 
 
 function App(){
@@ -25,11 +26,20 @@ function App(){
           </div>
         </Panel>
 
-        <Panel id="highlight" title="Destaque" className= "md:col-span-2">
-          <h3 className="font-heading text-xl font-bold">Membros</h3>
+        <Panel id="highlight" title="Membros" className= "md:col-span-2">
+          <h3 className="font-heading text-xl font-bold">Nome de cada membro</h3>
           <p className="mt-1 text-muted">
             Lista de membros destaque
           </p>
+          <div className="mt-4 grid gap-x-6 md:grid-cols-2">
+            <InfoRow label="Kim Nam-joon" value="31 anos" />
+            <InfoRow label="Kim Seok-jin" value="33 anos" />
+            <InfoRow label="Min Yoon-gi" value="33 anos" />
+            <InfoRow label="Jung Hoseok" value="32 anos" />
+            <InfoRow label="Park Jimin" value="30 anos" />
+            <InfoRow label="Kim Taehyung" value="30 anos" />
+            <InfoRow label="Jung Junkook" value="28 anos" />
+          </div>
         </Panel>
 
         <Panel id="list" title="List" className= "md:min-h-80">
@@ -40,7 +50,6 @@ function App(){
           Gráfico
         </Panel>
 
-          <p>Painel em construção</p>
 
       </main>
       <Footer />
