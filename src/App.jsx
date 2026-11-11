@@ -1,5 +1,7 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Menu from "./components/Menu";
+import SummaryCard from "./components/SummaryCard";
 
 const areaClass = 
 "min-h-32 rounded-xl border-2 border-dashed border-border bg-surface p-4 text-muted";
@@ -14,8 +16,15 @@ function App(){
       xl:grid-cols-[15rem_1fr_1fr] xl:p-8"
       >
 
-        <nav id="menu" className={`${areaClass} md:col-span-2 xl:col-span-1 xl:row-span-2`}>Menu</nav>
-        <section id="summary" className={`${areaClass} md:col-span-2`}>Resumo (cards)</section>
+        <Menu />
+        <section id="summary" className={`${areaClass} md:col-span-2`}>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <SummaryCard title="Jogos" value={42} icon="🎮" />
+            <SummaryCard title="Horas jogadas" value={318} icon="⏱️" />
+            <SummaryCard title="Zerados" value={17} icon="🏆" isHighlighted />
+            <SummaryCard title="Nota média" value="8,6" />
+          </div>
+        </section>
         <section id="list" className={areaClass}>Lista</section>
         <section id="chart" className={areaClass}>Gráfico</section>
         Painel em construção. Em breve, você terá acesso a informações valiosas sobre o BTS!
