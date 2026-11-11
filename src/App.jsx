@@ -4,6 +4,7 @@ import Menu from "./components/Menu";
 import SummaryCard from "./components/SummaryCard";
 import Panel from "./components/Panel";
 import InfoRow from "./components/InfoRow";
+import StatusBadge from "./components/StatusBadge";
 
 
 function App(){
@@ -27,10 +28,17 @@ function App(){
         </Panel>
 
         <Panel id="highlight" title="Membros" className= "md:col-span-2">
-          <h3 className="font-heading text-xl font-bold">Nome de cada membro</h3>
+          
           <p className="mt-1 text-muted">
             Lista de membros destaque
           </p>
+
+          <div className="flex flex-wrap items-center gap-2">
+           <h3 className="font-heading text-xl font-bold">Nome de cada membro</h3>
+           <StatusBadge label="Conheça" isActive />
+           <StatusBadge label="Idades" />
+          </div>
+
           <div className="mt-4 grid gap-x-6 md:grid-cols-2">
             <InfoRow label="Kim Nam-joon" value="31 anos" />
             <InfoRow label="Kim Seok-jin" value="33 anos" />
