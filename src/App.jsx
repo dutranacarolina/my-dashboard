@@ -5,6 +5,7 @@ import SummaryCard from "./components/SummaryCard";
 import Panel from "./components/Panel";
 import InfoRow from "./components/InfoRow";
 import StatusBadge from "./components/StatusBadge";
+import DetailsToggle from "./components/DetailsToggle";
 
 
 function App(){
@@ -48,6 +49,11 @@ function App(){
             <InfoRow label="Kim Taehyung" value="30 anos" />
             <InfoRow label="Jung Junkook" value="28 anos" />
           </div>
+
+          <DetailsToggle>
+           <p>Essas são informações atuais sobre os membros.</p>
+          </DetailsToggle>
+
         </Panel>
 
         <Panel id="list" title="List" className= "md:min-h-80">
