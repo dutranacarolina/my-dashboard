@@ -24,13 +24,24 @@ function App(){
             <SummaryCard title="Nota média" value="8,6" />
           </div>
         </Panel>
+
+        <Panel id="highlight" title="Destaque" className= "md:col-span-2">
+          <h3 className="font-heading text-xl font-bold">Membros</h3>
+          <p className="mt-1 text-muted">
+            Lista de membros destaque
+          </p>
+        </Panel>
+
         <Panel id="list" title="List" className= "md:min-h-80">
-            Lista
-          </Panel>
-          <Panel id="chart" title="Grafico" className= "md:min-h-80">
-            Gráfico
-          </Panel>
+          Lista
+        </Panel>
+
+        <Panel id="chart" title="Grafico" className= "md:min-h-80">
+          Gráfico
+        </Panel>
+
           <p>Painel em construção</p>
+
       </main>
       <Footer />
     </div>
