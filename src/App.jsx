@@ -21,9 +21,9 @@ function App(){
         <Menu />
         <Panel id="summary" title="Resumo" className= "md:col-span-2">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            <SummaryCard title="Jogos" value={42} icon="🎮" />
-            <SummaryCard title="Horas jogadas" value={318} icon="⏱️" />
-            <SummaryCard title="Zerados" value={17} icon="🏆" isHighlighted />
+            <SummaryCard title="Integrantes" value={7} icon="👥" />
+            <SummaryCard title="Premios" value={525} icon="🏆" />
+            <SummaryCard title="Albuns lançados" value={9} icon="💿" isHighlighted />
             <SummaryCard title="Nota média" value="8,6" />
           </div>
         </Panel>
@@ -31,7 +31,7 @@ function App(){
         <Panel id="highlight" title="Membros" className= "md:col-span-2">
           
           <p className="mt-1 text-muted">
-            Lista de membros destaque
+             Conheça os sete membros do BTS
           </p>
 
           <div className="flex flex-wrap items-center gap-2">
@@ -41,22 +41,23 @@ function App(){
           </div>
 
           <div className="mt-4 grid gap-x-6 md:grid-cols-2">
-            <InfoRow label="Kim Nam-joon" value="31 anos" />
-            <InfoRow label="Kim Seok-jin" value="33 anos" />
-            <InfoRow label="Min Yoon-gi" value="33 anos" />
-            <InfoRow label="Jung Hoseok" value="32 anos" />
-            <InfoRow label="Park Jimin" value="30 anos" />
-            <InfoRow label="Kim Taehyung" value="30 anos" />
-            <InfoRow label="Jung Junkook" value="28 anos" />
+            <InfoRow label="Kim Nam-joon" value="Líder" />
+            <InfoRow label="Kim Seok-jin" value="Vocalista" />
+            <InfoRow label="Min Yoon-gi" value="Rapper" />
+            <InfoRow label="Jung Hoseok" value="Rapper" />
+            <InfoRow label="Park Jimin" value="Vocalista" />
+            <InfoRow label="Kim Taehyung" value="Vocalista" />
+            <InfoRow label="Jung Junkook" value="Vocalista" />
           </div>
 
           <DetailsToggle>
-           <p>Essas são informações atuais sobre os membros.</p>
+           <p> O BTS é formado por sete integrantes.
+            O grupo estreou em 2013.</p>
           </DetailsToggle>
 
         </Panel>
 
-        <Panel id="list" title="List" className= "md:min-h-80">
+        <Panel id="list" title="Músicas mais ouvidas" className= "md:min-h-80">
           Lista
         </Panel>
 
