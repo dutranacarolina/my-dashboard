@@ -8,7 +8,6 @@ import StatusBadge from "./components/StatusBadge";
 import DetailsToggle from "./components/DetailsToggle";
 
 
-
 const summaryCards = [
   { id: 'member', title: 'Integrantes', value: 7, icon: '👥' },
   { id: 'Albums', title: 'Álbuns', value: 9, icon: '💿' },
@@ -16,6 +15,23 @@ const summaryCards = [
   { id: 'rating', title: 'Nota média', value: '8,6', icon: '💜' },
 ]
 
+const membros = [
+  { id: "rm", nome: "RM", nomeCompleto: "Kim Nam-joon", funcao: "Líder" },
+  { id: "jin", nome: "Jin", nomeCompleto: "Kim Seok-jin", funcao: "Vocalista" },
+  { id: "suga", nome: "Suga", nomeCompleto: "Min Yoon-gi", funcao: "Rapper" },
+  { id: "jhope", nome: "J-Hope", nomeCompleto: "Jung Hoseok", funcao: "Rapper" },
+  { id: "jimin", nome: "Jimin", nomeCompleto: "Park Jimin", funcao: "Vocalista" },
+  { id: "v", nome: "V", nomeCompleto: "Kim Taehyung", funcao: "Vocalista" },
+  { id: "jungkook", nome: "Jung Kook", nomeCompleto: "Jung Junkook", funcao: "Vocalista" }
+];
+
+const musicas = [
+  { id: "dynamite", title: "Dynamite", minutes: "3:33" },
+  { id: "butter", title: "Butter", minutes: "2:98" },
+  { id: "fake-love", title: "Fake Love", minutes: "4:02" },
+  { id: "idol", title: "IDOL", minutes: "3:48" },
+  { id: "spring-day", title: "Spring Day", minutes: "4:57" },
+];
 
 function App(){
   return (
@@ -28,6 +44,7 @@ function App(){
       >
 
         <Menu />
+
           <Panel id="summary" title="Resumo" className="md:col-span-2">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
 
@@ -44,7 +61,6 @@ function App(){
         </Panel>
 
         <Panel id="highlight" title="Membros" className= "md:col-span-2">
-          
           <p className="mt-1 text-muted">
              Conheça os sete membros do BTS
           </p>
@@ -52,11 +68,17 @@ function App(){
           <div className="flex flex-wrap items-center gap-2">
            <h3 className="font-heading text-xl font-bold">Nome de cada membro</h3>
            <StatusBadge label="Conheça" isActive />
-           <StatusBadge label="Idades" />
+           <StatusBadge label="Posição" />
           </div>
 
           <div className="grid gap-x-6 md:grid-cols-2">
-
+            {membros.map((membro) => (
+              <InfoRow
+                key={membro.id}
+                label={`${membro.nome} - ${membro.nomeCompleto}`}
+                value={membro.funcao}
+              />
+            ))}
           </div>
 
           <DetailsToggle>
@@ -67,7 +89,20 @@ function App(){
         </Panel>
 
         <Panel id="list" title="Músicas mais ouvidas" className= "md:min-h-80">
-          Lista
+          <ul>
+            {musicas.map((musica) => (
+              <li key={musica.id}
+                className="flex flex-wrap items-center justify-between gap-2
+                 border-b border-border py-3"
+              >
+                <div>
+                  <p className="font-bold">{musica.title}</p>
+                  <p className="text-sm text-muted">{musica.minutes} minutos</p>
+                </div>
+
+              </li>
+            ))}
+          </ul>
         </Panel>
 
         <Panel id="chart" title="Grafico" className= "md:min-h-80">
