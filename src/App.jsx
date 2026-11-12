@@ -8,6 +8,15 @@ import StatusBadge from "./components/StatusBadge";
 import DetailsToggle from "./components/DetailsToggle";
 
 
+
+const summaryCards = [
+  { id: 'member', title: 'Integrantes', value: 7, icon: '👥' },
+  { id: 'Albums', title: 'Álbuns', value: 9, icon: '💿' },
+  { id: 'Awards', title: 'Prêmios', value: 17, icon: '🏆', isHighlighted: true },
+  { id: 'rating', title: 'Nota média', value: '8,6', icon: '💜' },
+]
+
+
 function App(){
   return (
     
@@ -19,12 +28,18 @@ function App(){
       >
 
         <Menu />
-        <Panel id="summary" title="Resumo" className= "md:col-span-2">
+          <Panel id="summary" title="Resumo" className="md:col-span-2">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            <SummaryCard title="Integrantes" value={7} icon="👥" />
-            <SummaryCard title="Premios" value={525} icon="🏆" />
-            <SummaryCard title="Albuns lançados" value={9} icon="💿" isHighlighted />
-            <SummaryCard title="Nota média" value="8,6" />
+
+            {summaryCards.map((card) => (
+              <SummaryCard
+                key={card.id}
+                title={card.title}
+                value={card.value}
+                icon={card.icon}
+                isHighlighted={card.isHighlighted}
+              />
+            ))}
           </div>
         </Panel>
 
@@ -40,14 +55,8 @@ function App(){
            <StatusBadge label="Idades" />
           </div>
 
-          <div className="mt-4 grid gap-x-6 md:grid-cols-2">
-            <InfoRow label="Kim Nam-joon" value="Líder" />
-            <InfoRow label="Kim Seok-jin" value="Vocalista" />
-            <InfoRow label="Min Yoon-gi" value="Rapper" />
-            <InfoRow label="Jung Hoseok" value="Rapper" />
-            <InfoRow label="Park Jimin" value="Vocalista" />
-            <InfoRow label="Kim Taehyung" value="Vocalista" />
-            <InfoRow label="Jung Junkook" value="Vocalista" />
+          <div className="grid gap-x-6 md:grid-cols-2">
+
           </div>
 
           <DetailsToggle>
