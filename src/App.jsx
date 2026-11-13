@@ -95,7 +95,8 @@ function App(){
               <ListItem
                 key={musica.id}
                 title={musica.title}
-                hours={musica.minutes}
+                minutes={musica.minutes}
+                isFavorite={musica.id === 'dynamite'}
               />
             ))}
           </ul>
