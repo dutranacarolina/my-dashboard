@@ -6,6 +6,7 @@ import Panel from "./components/Panel";
 import InfoRow from "./components/InfoRow";
 import StatusBadge from "./components/StatusBadge";
 import DetailsToggle from "./components/DetailsToggle";
+import ListItem from "./components/ListsItem";
 
 
 const summaryCards = [
@@ -91,16 +92,11 @@ function App(){
         <Panel id="list" title="Músicas mais ouvidas" className= "md:min-h-80">
           <ul>
             {musicas.map((musica) => (
-              <li key={musica.id}
-                className="flex flex-wrap items-center justify-between gap-2
-                 border-b border-border py-3"
-              >
-                <div>
-                  <p className="font-bold">{musica.title}</p>
-                  <p className="text-sm text-muted">{musica.minutes} minutos</p>
-                </div>
-
-              </li>
+              <ListItem
+                key={musica.id}
+                title={musica.title}
+                hours={musica.minutes}
+              />
             ))}
           </ul>
         </Panel>
