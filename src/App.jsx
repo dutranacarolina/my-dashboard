@@ -7,6 +7,7 @@ import InfoRow from "./components/InfoRow";
 import StatusBadge from "./components/StatusBadge";
 import DetailsToggle from "./components/DetailsToggle";
 import ListItem from "./components/ListsItem";
+import { useState } from "react";
 
 
 const summaryCards = [
@@ -27,14 +28,33 @@ const membros = [
 ];
 
 const musicas = [
-  { id: "dynamite", title: "Dynamite", minutes: "3:33" },
-  { id: "butter", title: "Butter", minutes: "2:98" },
-  { id: "fake-love", title: "Fake Love", minutes: "4:02" },
-  { id: "idol", title: "IDOL", minutes: "3:48" },
-  { id: "spring-day", title: "Spring Day", minutes: "4:57" },
+  { id: "dynamite", title: "Dynamite", minutes: "3:33", isFavorite: true },
+  { id: "butter", title: "Butter", minutes: "2:98", isFavorite: false },
+  { id: "fake-love", title: "Fake Love", minutes: "4:02", isFavorite: false },
+  { id: "idol", title: "IDOL", minutes: "3:48", isFavorite: false },
+  { id: "spring-day", title: "Spring Day", minutes: "4:57", isFavorite: false },
+];
+
+const filterOptions = [
+  { id: "all", label: "Todos" },
+  { id: "favorite", label: "Favoritos" },
+  { id: "recents", label: "Favoritar" },
 ];
 
 function App(){
+  const [statusFilter, setStatusFilter] = useState("all");
+
+  const visibleMusicas = musicas.filter((musica) => {
+    if (statusFilter === "favorite") {
+      return musica.isFavorite;
+    } else if (statusFilter === "recents") {
+      return !musica.isFavorite;
+    } else {
+      return true;
+    }
+  });
+
+  
   return (
     
     <div className="flex min-h-screen flex-col  bg-background  text-foreground">
@@ -90,8 +110,32 @@ function App(){
         </Panel>
 
         <Panel id="list" title="Músicas mais ouvidas" className= "md:min-h-80">
+          <div className="mb-4 flex flex-wrap gap-2">
+            {filterOptions.map((option) => (
+            <button
+             key={option.id}
+             type="button"
+             onClick={() => setStatusFilter(option.id)}
+             aria-pressed={statusFilter === option.id}
+             className={`rounded-lg border px-3 py-2 font-bold ${
+              statusFilter === option.id
+                ?  'rounded-full border border-primary bg-primary text-background'
+                : 'rounded-full border border-border text-muted hover:border-primary'
+            }`}
+          >
+            {option.label}
+          </button>
+        ))    
+        
+           }
+          </div>
+
+           {visibleMusicas.length === 0 ? (
+            <p className="text-muted">Nenhuma música encontrada.</p>
+          ) : (
+
           <ul>
-            {musicas.map((musica) => (
+            {visibleMusicas.map((musica) => (
               <ListItem
                 key={musica.id}
                 title={musica.title}
@@ -100,6 +144,7 @@ function App(){
               />
             ))}
           </ul>
+          )}
         </Panel>
 
         <Panel id="chart" title="Grafico" className= "md:min-h-80">
