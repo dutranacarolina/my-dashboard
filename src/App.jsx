@@ -8,13 +8,8 @@ import StatusBadge from './components/StatusBadge';
 import DetailsToggle from './components/DetailsToggle';
 import ListItem from './components/ListsItem';
 import { useState } from 'react';
+import { musicas } from './data/musicas.js';
 
-const summaryCards = [
-  { id: 'member', title: 'Integrantes', value: 7, icon: '👥' },
-  { id: 'Albums', title: 'Álbuns', value: 9, icon: '💿' },
-  {id: 'Awards', title: 'Prêmios', value: 17, icon: '🏆', isHighlighted: true,},
-  { id: 'rating', title: 'Nota média', value: '8,6', icon: '💜' },
-];
 
 const membros = [
   { id: 'rm', nome: 'RM', nomeCompleto: 'Kim Nam-joon', funcao: 'Líder' },
@@ -24,14 +19,6 @@ const membros = [
   {id: 'jimin', nome: 'Jimin', nomeCompleto: 'Park Jimin', funcao: 'Vocalista',},
   { id: 'v', nome: 'V', nomeCompleto: 'Kim Taehyung', funcao: 'Vocalista' },
   {id: 'jungkook', nome: 'Jung Kook', nomeCompleto: 'Jung Junkook', funcao: 'Vocalista',},
-];
-
-const musicas = [
-  { id: 'dynamite', title: 'Dynamite', minutes: '3:33', isFavorite: true },
-  { id: 'butter', title: 'Butter', minutes: '2:98', isFavorite: false },
-  { id: 'fake-love', title: 'Fake Love', minutes: '4:02', isFavorite: false },
-  { id: 'idol', title: 'IDOL', minutes: '3:48', isFavorite: false },
-  { id: 'spring-day', title: 'Spring Day', minutes: '4:57', isFavorite: false },
 ];
 
 const filterOptions = [
@@ -44,6 +31,16 @@ function App() {
   const [statusFilter, setStatusFilter] = useState('all');
   const [search, setSearch] = useState('');
   const searchTerm = search.toLowerCase().trim();
+  const totalMinutes = musicas.reduce((total,musica) => total + musica.minutes, 0)
+  const completeMinutes = musicas.filter((musica) => musica.isFavorite). length
+
+  const summaryCards = [
+  { id: 'member', title: 'Integrantes', value: musicas.length, icon: '👥' },
+  { id: 'Albums', title: 'Álbuns', value: 20, icon: '💿' },
+  {id: 'Awards', title: 'Prêmios', value: completeMinutes, icon: '🏆', isHighlighted: true,},
+  { id: 'rating', title: 'Nota média', value: musicas.length - completeMinutes, icon: '💜' },
+];
+
 
   const visibleMusicas = musicas.filter((musica) => {
     const matchesSearch = musica.title.toLowerCase().includes(searchTerm);
