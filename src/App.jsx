@@ -21,7 +21,7 @@ function App (){
       
            <Route path="/" element={<DashboardPages />} />
            <Route path="/lista" element={<ListPage />} /> 
-          
+         
         </Routes>
         <Link to="/lista">Ver todos</Link>
         

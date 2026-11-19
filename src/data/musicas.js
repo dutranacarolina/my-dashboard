@@ -5,3 +5,4 @@ export const musicas = [
   { id: 'idol', title: 'IDOL', minutes: 3.48, isFavorite: false },
   { id: 'spring-day', title: 'Spring Day', minutes: 4.57, isFavorite: false },
 ];
+

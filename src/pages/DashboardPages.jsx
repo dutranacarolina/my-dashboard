@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import { musicas } from '../data/musicas';
 import Panel from '../components/Panel';
 import DetailsToggle from '../components/DetailsToggle';
 import InfoRow from '../components/InfoRow';
 import SummaryCard from '../components/SummaryCard';
 import StatusBadge from '../components/StatusBadge';
 import ListItem from '../components/ListsItem';
+import { useMusic } from '../context/MusicContext';
 
 const membros = [
   { id: 'rm', nome: 'RM', nomeCompleto: 'Kim Nam-joon', funcao: 'Líder' },
@@ -19,9 +19,11 @@ const membros = [
 
 function DashboardPage(){
 // … dentro de DashboardPage, antes do return:
+const {musicas} = useMusic()
 const firstMusic = musicas.slice(0, 3)
 const totalMinutes = musicas.reduce((total,musica) => total + musica.minutes, 0)
 const completeMinutes = musicas.filter((musica) => musica.isFavorite). length
+
 
  const summaryCards = [
   { id: 'member', title: 'Integrantes', value: musicas.length, icon: '👥' },

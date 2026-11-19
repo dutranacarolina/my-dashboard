@@ -2,6 +2,7 @@ import { useState } from "react";
 import Panel from "../components/Panel";
 import { musicas } from "../data/musicas";
 import ListItem from "../components/ListsItem";
+import { useMusic } from "../context/MusicContext";
 
 const filterOptions = [
   { id: 'all', label: 'Todos' },
@@ -10,9 +11,11 @@ const filterOptions = [
 ];
 
 function ListPage(){
+    const {musicas} = useMusic()
     const [statusFilter, setStatusFilter] = useState('all');
     const [search, setSearch] = useState('');
     const searchTerm = search.toLowerCase().trim();
+    
 
     const visibleMusicas = musicas.filter((musica) => {
         const matchesSearch = musica.title.toLowerCase().includes(searchTerm);
