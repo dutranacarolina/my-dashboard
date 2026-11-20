@@ -48,7 +48,12 @@ function Menu() {
         </li>
         <li>
           <NavLink to="/lista" onClick={closeMenu} className={linkClass}>
-            Meus jogos
+            Minhas Musicas
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/novo" onClick={closeMenu} className={linkClass}>
+            Nova Musica
           </NavLink>
         </li>
       </ul>

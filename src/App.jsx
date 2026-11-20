@@ -4,6 +4,7 @@ import Menu from './components/Menu';
 import { Routes, Route, Link } from 'react-router-dom';
 import DashboardPages from './pages/DashboardPages.jsx';
 import ListPage  from './pages/ListPage.jsx';
+import NewItemPage from './pages/NewItemPage.jsx'
 
 
 function App (){
@@ -21,6 +22,7 @@ function App (){
       
            <Route path="/" element={<DashboardPages />} />
            <Route path="/lista" element={<ListPage />} /> 
+           <Route path="/novo" element = {<NewItemPage />} />
          
         </Routes>
         <Link to="/lista">Ver todos</Link>
